@@ -1,0 +1,156 @@
+IDEAS OF ELECTRONICS
+
+Exercise: Compute the truth table for NOT:
+X | NOT X
+--|-------
+0 |   1
+1 |   0
+
+Exercise: Compute the truth table table for AND.
+X | Y | X AND Y
+--|---|--------
+0 | 0 |   0
+1 | 0 |   0
+0 | 1 |   0
+1 | 1 |   1
+
+Exercise: Compute the truth table for exclusive-or, defined by the formula: XOR(X, Y) = (X OR Y) AND NOT (X AND Y)
+X | Y | X XOR Y
+--|---|--------
+0 | 0 |   0
+1 | 0 |   1
+0 | 1 |   1
+1 | 1 |   0
+
+Exercise: Prove De Morgan's theorem, NOT(X OR Y) = NOT(X) AND NOT(Y), by completing the table and checking the last two columns are the same.
+X | Y | NOT(X OR Y) | NOT(X) AND NOT(Y)
+--|---|-------------|-------------------
+0 | 0 |      1      |        1
+1 | 0 |      0      |        0
+0 | 1 |      0      |        0
+1 | 1 |      0      |        0
+
+Exercise: using truth tables, check these three equations
+
+NOT(X) = NAND(1, X) = NOT(X AND 1)
+
+X | NOT(X) | X AND 1 | NOT(X AND 1)
+--|--------|---------|-------------
+0 |   1    |    0    |     1
+1 |   0    |    1    |     0
+
+AND(X, Y) = NOT(NAND(X, Y))
+
+X | Y | X AND Y | NAND(X, Y) | NOT(NAND(X, Y)) 
+--|---|---------|------------|----------------
+0 | 0 |    0    |     1      |       0
+1 | 0 |    0    |     1      |       0
+0 | 1 |    0    |     1      |       0
+1 | 1 |    1    |     0      |       1
+
+OR(X, Y) = NAND(NOT(X), NOT(Y))
+
+X | Y | NOT(X) | NOT(Y) | NAND(NOT(X), NOT(Y))| OR(X, Y)
+--|---|--------|--------|---------------------|---------
+0 | 0 |    1   |    1   |          0          |    0
+1 | 0 |    0   |    1   |          1          |    1
+0 | 1 |    1   |    0   |          1          |    1
+1 | 1 |    0   |    0   |          1          |    1
+
+Exercise: write similar formulas expressing NOT, AND, and OR in terms of NOR
+NOT(X) = NOR(X, 0)
+OR(X,Y) = NOT(NOR(X,Y))
+AND(X,Y) = NOR(NOT(X), NOT(Y))
+
+Exercise: why NOT and OR can't be expressed in terms of AND? Explain.
+AND is more strict if it's correct to say so, because it evaluates to True if both operands are True, and it's just 1 out of 4 cases, while OR is more varied and NOT just inverses the input and can't narrow/widen OR/AND results.
+
+Exercise: Without listing explicitly, how many possible 8-bit binary numbers are there?
+Answer: 2^8 = 256
+
+Exercise: Convert X = 110 to decimal.
+X2 | X1 | X0
+---|----|----
+1  | 1  |  0
+^    ^     ^--------- times 2^0 = 1
+|    |--------------- times 2^1 = 2
+|-------------------- times 2^2 = 4
+1 * 2^2 + 1 * 2^1 + 0 * 2^0 = 1*4 + 1*2 + 0*1 = 6
+
+Exercise: Convert 11 to binary.
+11(10) = 1011(2)
+
+Exercise: Convert these powers of 2 into binary: 2, 4, 8, 16, 32. What do you notice?
+2 = 10, 4 = 100, 8 = 1000, 16 = 10000, 32 = 100000
+Every next number is 10 times bigger than the previous one.
+
+Exercise: Convert these numbers into binary: 1, 3, 7, 15, 31 (they are all 2^n - 1 for some n). What do you notice?
+1 = 1, 3 = 11, 7 = 111, 15 = 1111, 31 = 11111
+The number of 1 grows with every number, and the quantity of 1 is equal to the quanitity of zeros in binary numbers from previous exercise (8 = 1000 and 7 = 111).
+
+Exercise: check that these numbers all have the same 3-bit representation: 3 = 11 = 17, 0 = 8 = 16, 2 = 10 = 18.
+3 = 011; 11 = 1011 = 011; 17 = 10001 = 001 - the last one is not the same
+0 = 000; 8 = 1000 = 000; 16 = 10000 = 000 - all the same
+2 = 010; 10 = 1010 = 010; 18 = 10010 = 010 - all the same too
+
+Exercise: complete the table by converting 2 into single-bit binary:
+X0 | Y0 | Z0
+---|----|----
+0  | 0  | 0
+1  | 0  | 1
+0  | 1  | 1
+1  | 1  | 0
+
+Exercise: do the same for single-bit multiplication: write down the table of binary numbers for X0, Y0, and the binary representation of their product Z0, and find the logical operation which matches. We say this operation implements single-bit multiplication.
+X0 | Y0 | Z0
+---|----|----
+0  | 0  | 0
+1  | 0  | 0
+0  | 1  | 0
+1  | 1  | 1
+AND operation matches the results.
+
+Exercise: Using A and B as the inputs, and OUT as the output, explain how this circuit acts as NAND(A,B); for each entry in the truth table, follow the explanation above. True is "high energy" and False is "low energy".
+X | Y | X AND Y | NAND(X, Y) = OUT 
+--|---|---------|-----------------
+0 | 0 |    0    |       1          -  both gates were unpowered, so electrons lost a lot of energy
+1 | 0 |    0    |       1          -  one of the gates was unpowered, so electrons lost energy
+0 | 1 |    0    |       1          -  one of the gates was unpowered, so electrons lost energy
+1 | 1 |    1    |       0          -  both gates were powered, so electrons didn't lose any energy
+
+
+NETWORKING
+
+Exercise: show that every IPv4 can be represented by four 8bit unsigned integers, and that every 8bit unsigned integer is between 0 and 255.
+32bit unsigned integer can be represented as 4 8bit digits in a following way XXXX.XXXX.XXXX.XXXX. So all combinations of this 4 digits in binary system present all combinations of possible 32bit numbers.
+For example: 0.0.0.0 = 00000000.00000000.00000000.00000000 and 255.255.255.255 = 11111111.11111111.11111111.11111111 - and that's the range.
+Max 8bit number is 11111111 which is equal to 255 in decimal, so all 8bit integers is really between 0 and 255.
+
+Exercise: how many IPv4 addresses are there? Is it enough? Explain.
+2^32 = 4294967296 addresses, which is not enough, because people start to use Internet more every year.
+
+Exercise: use ping in a terminal to resolve a domain name. Copy-paste the command you used, and the result.
+C:\>ping google.com
+
+Обмен пакетами с google.com [74.125.205.113] с 32 байтами данных:
+Ответ от 74.125.205.113: число байт=32 время=22мс TTL=106
+Ответ от 74.125.205.113: число байт=32 время=39мс TTL=106
+Ответ от 74.125.205.113: число байт=32 время=23мс TTL=106
+Ответ от 74.125.205.113: число байт=32 время=22мс TTL=106
+
+Статистика Ping для 74.125.205.113:
+    Пакетов: отправлено = 4, получено = 4, потеряно = 0
+    (0% потерь)
+Приблизительное время приема-передачи в мс:
+    Минимальное = 22мсек, Максимальное = 39 мсек, Среднее = 26 мсек
+    
+Exercise: The Multipath TCP project aims to allow TCP packets to be split across multiple network links and reassembled at the destination. For example, if you were uploading a 100 megabyte file to a server from your phone, it would allow you to send 75 megabytes by WiFi and 25 megabytes by cellular automatically. How should the ratio be chosen if you want to minimise transmission time? Minimise cellular bandwidth use? Explain.
+If Wi-Fi connection is stable, it should word faster so the more megabytes we send by Wi-Fi the less transmission time is needed and less cellular bandwidth is used.
+
+Exercise: UDP is popular for streaming media; explain why.
+UDP is faster (because it doesn't need acknowledgement etc) and it offers reduced latency which is essential for streaming.
+
+Exercise: Read the Wikipedia articles on multicast and anycast routing. Why is anycast good for content delivery networks, and why is multicast good for live-streaming? What are some other uses for these?
+Anycast is good for content delivery networks because it sends the data to the closest receivers, so it will be done faster.
+Multicast is good for live-streaming because it follows the one-to-many scheme which is exactly what happens during streaming, new users can be added without any damage to the system.
+Some other uses: anycast - implementation of Internet root nameservers as clusters of hosts, multicast - airport terminals, different industrial buildings with a single video surveillance post.
