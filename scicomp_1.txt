@@ -1,4 +1,4 @@
-IDEAS OF ELECTRONICS
+IDEAS OF ELECTRONICS 
 
 Exercise: Compute the truth table for NOT:
 X | NOT X
